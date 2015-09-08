@@ -1,2 +1,3 @@
-# Hello-Git
-this is my first repo
+UVA efforts
+
+This is my uva solve exhibition 
