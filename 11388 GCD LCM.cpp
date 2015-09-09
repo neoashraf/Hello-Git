@@ -54,7 +54,7 @@ int main() {
 
 
 
-
+//alternate solution
 
 
 //This is </the_brainFuck>
