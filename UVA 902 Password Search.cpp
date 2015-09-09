@@ -36,8 +36,6 @@
 #define mp(a,b) make_pair(a,b)
 #define fs first
 #define sc second
-#define unq(vec) stable_sort(vec.begin(),vec.end());\
-                 vec.resize(distance(vec.begin(),unique(vec.begin(),vec.end())));
 
 using namespace std;
 
@@ -64,8 +62,6 @@ int main(int argc, const char **argv)
             xs.pb(temp);
         }
         sort(xs.begin(),xs.end());
-//        for(it=xs.begin();it!=xs.end();++it)
-//            cout<<*it<<endl;
         l=xs.size();
         m=-1;
         i=0;
