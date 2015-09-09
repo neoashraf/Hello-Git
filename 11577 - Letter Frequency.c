@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int i,j,k,t,m,count[205],l,max,ll,swap,xxx;
+    char sample[205],mmm[26];
+    scanf("%d",&t);
+    getchar();
+    for(i=1;i<=t;i++){
+        gets(sample);
+        l=strlen(sample);
+        m=0;
+        xxx=0;
+        for(j=0;j<l;j++){
+            if(!((sample[j]>='a'&&sample[j]<='z')||(sample[j]>='A'&&sample[j]<='Z')))
+                count[m]=-1;
+            else{
+                count[m]=1;
+                for(k=j+1;k<l;k++){
+                    if((sample[k]>='a'&&sample[k]<='z')||(sample[k]>='A'&&sample[k]<='Z')){
+                        if((sample[k]==sample[j])||(sample[k]==sample[j]-32)||(sample[k]==sample[j]+32)){
+                            sample[k]='@';
+                            count[m]++;
+                    }
+                    }
+                }
+            xxx=1;
+            }
+            m++;
+        }
+        if(!xxx)
+            printf("abcdefghijklmnopqrstuvwxyz\n");
+        else{
+            max=0;
+            for(j=0;j<m;j++){
+                if(count[j]>=max){
+                    if(count[j]>max){
+                        max=count[j];
+                        k=0;
+                        mmm[k]=sample[j];
+                        continue;
+                    }
+                    if(count[j]==max){
+                        k++;
+                        mmm[k]=sample[j];
+                    }
+                }
+            }
+            for(l=0;l<=k;l++){
+                if(mmm[l]>='A'&&mmm[l]<='Z')
+                    mmm[l]=mmm[l]+32;
+            }
+            for(l=0;l<=k;l++){
+                for(ll=0;ll<k-l;ll++){
+                    if(mmm[ll]>mmm[ll+1]){
+                        swap=mmm[ll+1];
+                        mmm[ll+1]=mmm[ll];
+                        mmm[ll]=swap;
+                    }
+                }
+            }
+            for(l=0;l<=k;l++){
+                printf("%c",mmm[l]);
+            }
+            printf("\n");
+        }
+
+    }
+    return 0;
+}
